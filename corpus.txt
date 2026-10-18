@@ -1,0 +1,47 @@
+le chat dort sur le tapis.
+le chat regarde la lune.
+le chat cherche une souris.
+le chat aime le soleil.
+le chien dort près de la porte.
+le chien regarde le jardin.
+le chien court dans le jardin.
+la lune éclaire la maison.
+la lune est ronde et brillante.
+le soleil éclaire la ville.
+le soleil réchauffe la terre.
+le jardin contient des fleurs.
+le jardin est calme le matin.
+les oiseaux chantent dans les arbres.
+les oiseaux volent au-dessus du jardin.
+la pluie tombe sur le toit.
+la pluie nourrit les fleurs.
+le vent souffle dans les feuilles.
+le vent traverse la maison.
+je lis un livre le soir.
+je regarde les étoiles.
+je marche dans la rue.
+je rêve de comprendre le langage.
+tu regardes le ciel.
+tu poses une question.
+tu écoutes une histoire.
+nous apprenons avec des exemples.
+nous écrivons des phrases simples.
+nous cherchons des régularités.
+une machine peut compter les lettres.
+une machine peut prédire une lettre.
+une machine apprend à partir des données.
+un modèle de langage prédit la suite.
+un modèle simple ne comprend pas tout.
+un modèle peut devenir plus complexe.
+qui regarde la lune ?
+qui pose la question ?
+quand vient le matin ?
+quelle phrase vient ensuite ?
+pourquoi les étoiles brillent-elles ?
+le robot observe des mots.
+le robot apprend avec des exemples.
+le robot ne connaît pas encore la grammaire.
+le robot essaie de prédire la suite.
+le langage contient des motifs.
+le langage contient des surprises.
+le langage dépend du contexte.

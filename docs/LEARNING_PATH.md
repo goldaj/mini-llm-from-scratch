@@ -1,0 +1,1 @@
+# Parcours d'apprentissage\n\nLa progression détaillée et les modèles ultérieurs seront ajoutés progressivement. Le premier cours introduit le modèle bigramme.\n
