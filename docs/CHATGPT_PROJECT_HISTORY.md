@@ -22,3 +22,11 @@ Réponse de l'assistant : texte exact indisponible ici.
 - Les passages marqués `verbatim` sont des extraits exacts disponibles dans le contexte ; les résumés ne doivent **jamais** être cités comme du dialogue mot pour mot. Aucune réponse complète de l'assistant n'a été inventée.
 - Pour obtenir l'intégralité des questions, réponses et horodatages : intégrer un export authentique des conversations pertinentes ; conserver l'ordre et le rôle des messages, et expurger avant publication les éléments sensibles et hors projet.
 - En intervention future, ajouter en bas les nouveaux dialogues sourcés et les décisions vérifiées, sans effacer les entrées précédentes. Ce journal et `AGENTS.md` sont versionnés dans Git.
+
+## 2026-10-24 — Revue parallèle (heure inconnue)
+
+**Utilisateur (verbatim, extrait)** : « Tu vas refaire la même chose sur TOUT mon repo git. Tu vas commencer par les projets les plus gros, regarder ce que tu peux faire dessus et le faire sur ta branch ».
+
+**Assistant (résumé reconstruit)** : correction de l'accès à un caractère absent (évite de modifier le vocabulaire appris pendant une requête), refus d'une longueur négative, nouveaux tests pédagogiques et CI. Branche `chatgpt/review-20261024`; aucune modification de `main`.
+
+**Validation** : résultats de CI à vérifier, aucun test exécuté localement via le connecteur GitHub. Confiance élevée pour le correctif ciblé ; ne pas confondre prototype statistique bigramme et LLM entraîné. Codex doit vérifier le diff avant fusion.
