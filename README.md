@@ -24,10 +24,23 @@ Le programme entraîne un modèle sur `corpus.txt`, affiche des prédictions pro
 4. Génération par échantillonnage pseudo-aléatoire reproductible.
 5. Export JSON du modèle entraîné.
 
+## Leçon 02 : apprendre plutôt que compter
+
+```bash
+python lecon02.py
+```
+
+Cette deuxième leçon entraîne une petite matrice de scores par descente de
+gradient, avec une fonction de perte (cross-entropy). Elle compare l'erreur
+avant et après l'entraînement, génère du texte reproductible et exporte
+`modele_bigram_entrainable.json`. Le programme n'utilise aucune dépendance
+externe et se lance dans PyCharm comme la première leçon. Ce n'est pas encore
+un réseau neuronal avec des embeddings ou de l'attention.
+
 ## Feuille de route
 
 - [x] Leçon 01 : corpus, transitions et génération bigramme
-- [ ] Leçon 02 : paramètre entraînable et fonction de perte
+- [x] Leçon 02 : paramètres entraînables, softmax, fonction de perte et descente de gradient
 - [ ] Leçon 03 : gradient et optimisation
 - [ ] Leçon 04 : embeddings et fenêtre de contexte
 - [ ] Leçon 05 : mécanisme d'attention
