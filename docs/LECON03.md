@@ -34,13 +34,9 @@ Le test `test_gradient_finite_difference_for_all_layers` vérifie les dérivées
 
 Le découpage par **lignes**, avant tokenisation, est hérité de `split_corpus` de la leçon 02. Le vocabulaire est construit sur le *train* uniquement. Une transition de validation avec symbole absent (y compris dans le contexte) est exclue de la NLL ; le rapport indique la **couverture des exemples**. Même logique pour les références unigramme/bigramme. Les lignes répétées dans un petit corpus pourraient toutefois se retrouver des deux côtés du split : pour une étude plus sérieuse, regrouper les doublons par familles.
 
-**Observation locale (corpus jouet de 15 lignes françaises, seed 7, 10 epochs, lr 0,05, contexte 3, dim 4, hidden 16)** :
-- 733 paramètres, 245 exemples d'entraînement, 65 de validation, couverture 100 %.
-- NLL train initiale : **3,218844** ; NLL train finale : **2,041440**.
-- NLL validation MLP : **2,160135**, perplexité : **8,6723**.
-- NLL validation bigramme add-one : **2,419162** ; unigramme : **2,711010**.
+**État des preuves :** une implémentation et des tests ont été écrits, mais leur exécution intégrale n'a **pas été vérifiée** sur ce dépôt dans cette intervention. Les valeurs de perte et perplexité sont à produire réellement avec la commande ci-dessus, puis à conserver comme artefacts reproductibles. Ne pas afficher de nombres issus de calculs non exécutés.
 
-Ce résultat sur **un seul découpage et une seule graine** ne valide ni robustesse multi-seed ni supériorité générale du réseau. Les deux références sont des modèles statistiques lissés, pas la leçon 02 optimisée ; le rapport ne prétend pas comparer à poids ou calcul égal.
+Même un résultat sur **un seul découpage et une seule graine** ne valide ni robustesse multi-seed ni supériorité générale du réseau. Les deux références sont des modèles statistiques lissés, pas la leçon 02 optimisée ; le rapport ne prétend pas comparer à poids ou calcul égal.
 
 **Pas d'attention ni de Transformer** : le contexte est fixe et borné. Rien n'est connecté à Internet, Twitch ou des données sensibles.
 
