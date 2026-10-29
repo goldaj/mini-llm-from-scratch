@@ -23,6 +23,14 @@ Réponse de l'assistant : texte exact indisponible ici.
 - Pour obtenir l'intégralité des questions, réponses et horodatages : intégrer un export authentique des conversations pertinentes ; conserver l'ordre et le rôle des messages, et expurger avant publication les éléments sensibles et hors projet.
 - En intervention future, ajouter en bas les nouveaux dialogues sourcés et les décisions vérifiées, sans effacer les entrées précédentes. Ce journal et `AGENTS.md` sont versionnés dans Git.
 
+## 2026-10-24 — Revue parallèle (heure inconnue)
+
+**Utilisateur (verbatim, extrait)** : « Tu vas refaire la même chose sur TOUT mon repo git. Tu vas commencer par les projets les plus gros, regarder ce que tu peux faire dessus et le faire sur ta branch ».
+
+**Assistant (résumé reconstruit)** : correction de l'accès à un caractère absent (évite de modifier le vocabulaire appris pendant une requête), refus d'une longueur négative, nouveaux tests pédagogiques et CI. Branche `chatgpt/review-20261024`; aucune modification de `main`.
+
+**Validation** : résultats de CI à vérifier, aucun test exécuté localement via le connecteur GitHub. Confiance élevée pour le correctif ciblé ; ne pas confondre prototype statistique bigramme et LLM entraîné. Codex doit vérifier le diff avant fusion.
+
 ## 2026-10-29 : leçon 02
 
 Utilisateur (verbatim de ce fil) : « Je ne te demande pas de créer une tâche planifiée qui continue chaque jour. Je te demande de continuer maintenant en boucle et de ne pas t'arrêter sur juste 3 améliorations alors qu'il y a plus de 40 repo et plusieurs améliorations possibles par repo ».
