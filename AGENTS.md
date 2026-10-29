@@ -16,3 +16,7 @@
 - Format : date ISO et fuseau si connus, rôle `Utilisateur` ou `Assistant`, mention `verbatim` seulement pour un texte exact. Sinon `résumé reconstruit, non verbatim`. Ne pas inventer d'heure ni de citation.
 - Si l'historique intégral n'est pas disponible, le signaler et demander un export réel plutôt que fabriquer une transcription. Préserver les exports existants sans les réécrire.
 - Exclure secrets, identifiants, données personnelles et contenus non destinés à la publication. Le niveau de visibilité de ce dépôt s'applique aussi aux documents ajoutés.
+
+## Leçon 02 (2026-10-29)
+
+`lecon02.py` ajoute un vrai modèle bigramme linéaire avec gradient et softmax, évaluation par lignes tenues à l'écart et génération. Lire `docs/LECON02.md`, tester `python -m unittest discover -s tests -v` et garder le chemin pédagogique PyCharm. Ne pas appeler ce modèle un Transformer et ne pas retirer `lecon01.py`. Préserver le caractère hors ligne et la confidentialité des corpus.

@@ -22,3 +22,9 @@ Réponse de l'assistant : texte exact indisponible ici.
 - Les passages marqués `verbatim` sont des extraits exacts disponibles dans le contexte ; les résumés ne doivent **jamais** être cités comme du dialogue mot pour mot. Aucune réponse complète de l'assistant n'a été inventée.
 - Pour obtenir l'intégralité des questions, réponses et horodatages : intégrer un export authentique des conversations pertinentes ; conserver l'ordre et le rôle des messages, et expurger avant publication les éléments sensibles et hors projet.
 - En intervention future, ajouter en bas les nouveaux dialogues sourcés et les décisions vérifiées, sans effacer les entrées précédentes. Ce journal et `AGENTS.md` sont versionnés dans Git.
+
+## 2026-10-29 : leçon 02
+
+Utilisateur (verbatim de ce fil) : « Je ne te demande pas de créer une tâche planifiée qui continue chaque jour. Je te demande de continuer maintenant en boucle et de ne pas t'arrêter sur juste 3 améliorations alors qu'il y a plus de 40 repo et plusieurs améliorations possibles par repo ».
+
+Assistant (résumé non verbatim) : progression des dépôts GitHub immédiatement ; choix de faire évoluer mini-llm-from-scratch avec une leçon 02 calculant softmax, pertes d'entraînement/validation, perplexité et gradients sur une vraie matrice entraînable, plus tests. Le projet initial leçon 01 demeure inchangé. Se référer à docs/LECON02.md. Le corpus public de démonstration n'est pas un texte littéraire privé.

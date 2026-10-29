@@ -1,38 +1,22 @@
 # Mini Language Model, from scratch
 
-**Projet pédagogique | Python 3 · statistiques de langage · génération de texte**
+Projet pédagogique Python/PyCharm pour construire progressivement un modèle de langage, **sans modèle préentraîné et sans dépendances**.
 
-Construire un modèle de langage *étape par étape*, sans poids préentraînés et sans dépendances externes. Le premier jalon est un modèle **bigramme de caractères** : il apprend à prédire le caractère suivant à partir d'un corpus en français.
+## Exécuter dans PyCharm
 
-> Il ne s'agit pas encore d'un réseau de neurones ni d'un grand modèle de langage. L'objectif est de comprendre les mécanismes avant d'implémenter un modèle plus avancé.
+- **Leçon 1 :** ouvrir `lecon01.py` puis cliquer Run (bigramme par comptage).
+- **Leçon 2 :** ouvrir `lecon02.py` puis cliquer Run. Cette fois, les probabilités proviennent de **poids numériques entraînables** appris par gradient et softmax, avec perte d'entropie croisée sur le texte. Le programme affiche la perte d'entraînement, la perte de validation, la perplexité et un exemple généré, puis exporte `modele_softmax.json`.
 
-## Exécution
+Depuis le terminal :
 
 ```bash
-python lecon01.py
+python lecon02.py --epochs 200 --learning-rate 2 --seed 7
+python -m unittest discover -s tests -v
 ```
 
-Le programme entraîne un modèle sur `corpus.txt`, affiche des prédictions probabilistes, génère quelques exemples et exporte ses paramètres appris dans `modele_bigram.json`.
+Le modèle de la leçon 2 est une couche linéaire one-hot vers softmax : **pas un Transformer et pas encore un LLM moderne**. La séparation entraînement/validation se fait par phrases/lignes distinctes, pas par caractères contigus, afin de limiter la fuite de données. Les caractères de validation absents du vocabulaire d'entraînement ne peuvent pas être évalués : le rapport indique la couverture.
 
-**Prérequis :** Python 3.10+ ; bibliothèque standard uniquement. Travail et apprentissage prévus dans PyCharm.
+Leçon détaillée : [docs/LECON02.md](docs/LECON02.md). Les sorties de modèles générées sont personnelles et non destinées au dépôt.
 
-## Fonctionnement
-
-1. Lecture et normalisation du texte.
-2. Comptage des transitions entre caractères adjacents.
-3. Estimation de probabilités conditionnelles.
-4. Génération par échantillonnage pseudo-aléatoire reproductible.
-5. Export JSON du modèle entraîné.
-
-## Feuille de route
-
-- [x] Leçon 01 : corpus, transitions et génération bigramme
-- [ ] Leçon 02 : paramètre entraînable et fonction de perte
-- [ ] Leçon 03 : gradient et optimisation
-- [ ] Leçon 04 : embeddings et fenêtre de contexte
-- [ ] Leçon 05 : mécanisme d'attention
-- [ ] Leçon 06 : mini-Transformer autorégressif
-
-## Intérêt technique
-
-Démarche incrémentale, expérimentation reproductible, Python, statistiques, apprentissage automatique et communication pédagogique.
+## Prochaines leçons
+Gradient vérifié par différences finies, embeddings, contexte de plusieurs caractères, attention puis Transformer minimal, avec tests et mesures reproductibles.
