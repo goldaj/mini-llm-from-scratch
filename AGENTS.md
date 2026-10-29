@@ -20,3 +20,13 @@
 ## Leçon 02 (2026-10-29)
 
 `lecon02.py` ajoute un vrai modèle bigramme linéaire avec gradient et softmax, évaluation par lignes tenues à l'écart et génération. Lire `docs/LECON02.md`, tester `python -m unittest discover -s tests -v` et garder le chemin pédagogique PyCharm. Ne pas appeler ce modèle un Transformer et ne pas retirer `lecon01.py`. Préserver le caractère hors ligne et la confidentialité des corpus.
+
+## Leçon 03 — contexte causal et embeddings (2026-10-29)
+
+- Branche empilée `feat/lesson03-context-embeddings-20261029`, base `feat/lesson02-trainable-softmax-20261029` (PR #2). Ne pas fusionner indépendamment avant le parent.
+- `lecon03.py` : vrai MLP de caractères, embeddings, contexte 3 (1–5), tanh et rétropropagation explicite, NLL validation et références unigramme/bigramme lissés sur les mêmes exemples.
+- Lire `docs/LECON03.md`. Les cinq tests `tests/test_lecon03.py` contrôlent notamment les gradients par différences finies et l'absence de tokens futurs.
+- Tests : `python -m unittest discover -s tests -v` puis `python lecon03.py --epochs 3 --length 10 --output /tmp/modele_context_mlp.json`. Sur Windows, choisir un chemin de sortie sous un répertoire temporaire.
+- Aucun réseau, aucun jeu de données privé, aucune API externe. Pas d'attention ni de Transformer : ne pas présenter ce MLP pédagogique comme un LLM moderne.
+- Observation reproductible sur corpus jouet de 15 lignes : seed 7 / 10 epochs / contexte 3 / dimension 4 / couche cachée 16, validation NLL MLP 2,160135 vs bigramme 2,419162. Ne pas généraliser : un seul split et une seule graine, pas de comparaison à calcul égal.
+- Réviser les états CI/PR avant toute intégration ; passage à la leçon 04 : attention causale, évaluation multi-seed et tests anti-fuite.
