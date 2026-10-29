@@ -28,5 +28,5 @@
 - Lire `docs/LECON03.md`. Les cinq tests `tests/test_lecon03.py` contrôlent notamment les gradients par différences finies et l'absence de tokens futurs.
 - Tests : `python -m unittest discover -s tests -v` puis `python lecon03.py --epochs 3 --length 10 --output /tmp/modele_context_mlp.json`. Sur Windows, choisir un chemin de sortie sous un répertoire temporaire.
 - Aucun réseau, aucun jeu de données privé, aucune API externe. Pas d'attention ni de Transformer : ne pas présenter ce MLP pédagogique comme un LLM moderne.
-- Observation reproductible sur corpus jouet de 15 lignes : seed 7 / 10 epochs / contexte 3 / dimension 4 / couche cachée 16, validation NLL MLP 2,160135 vs bigramme 2,419162. Ne pas généraliser : un seul split et une seule graine, pas de comparaison à calcul égal.
+- Le corpus jouet comporte 15 lignes ; les mesures de NLL, perplexité et gain face aux baselines **restent à exécuter et contrôler**. Aucune statistique de validation n'est certifiée pour cette branche, même sur un split unique.
 - Réviser les états CI/PR avant toute intégration ; passage à la leçon 04 : attention causale, évaluation multi-seed et tests anti-fuite.
