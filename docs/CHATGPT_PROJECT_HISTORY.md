@@ -28,3 +28,11 @@ Réponse de l'assistant : texte exact indisponible ici.
 Utilisateur (verbatim de ce fil) : « Je ne te demande pas de créer une tâche planifiée qui continue chaque jour. Je te demande de continuer maintenant en boucle et de ne pas t'arrêter sur juste 3 améliorations alors qu'il y a plus de 40 repo et plusieurs améliorations possibles par repo ».
 
 Assistant (résumé non verbatim) : progression des dépôts GitHub immédiatement ; choix de faire évoluer mini-llm-from-scratch avec une leçon 02 calculant softmax, pertes d'entraînement/validation, perplexité et gradients sur une vraie matrice entraînable, plus tests. Le projet initial leçon 01 demeure inchangé. Se référer à docs/LECON02.md. Le corpus public de démonstration n'est pas un texte littéraire privé.
+
+## Intervention 2026-10-29 — leçon 03 (résumé non verbatim)
+
+- Utilisateur : a demandé de continuer les évolutions GitHub en chaîne, d'annoncer les éléments terminés et de documenter systématiquement les reprises.
+- Après examen des PR et branches : PR parent #2 ouverte, CI confirmée en succès, branche `feat/lesson02-trainable-softmax-20261029` ; ne pas toucher à `main`.
+- Implémentation sur `feat/lesson03-context-embeddings-20261029` : `lecon03.py` (MLP d'embeddings, contexte causal 3, tanh, descente de gradient), 5 tests scientifiques et fonctionnels, CI étendue, documentation pédagogique.
+- Preuve locale : suite dédiée `test_lecon03.py` exécutée sous Python 3.13 avec module `split_corpus` de la leçon 02 reproduit de façon isolée : 5 tests réussis ; démonstration 15 lignes / seed 7 / 10 epochs : validation NLL MLP 2,160135 vs bigramme 2,419162. Limite : suite intégrale et CI de cette branche à contrôler ; corpus artificiel très court, aucun résultat scientifique généralisable.
+- Codex doit reprendre l'analyse de robustesse multi-seeds et la leçon 04 sans transformer les résultats jouets en revendications de performance d'un LLM. Aucun modèle préentraîné et aucun corpus personnel ajouté.
