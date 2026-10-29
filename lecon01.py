@@ -23,7 +23,9 @@ for actuel, suivant in zip(texte, texte[1:]):
 
 # 3. Convertir les comptages en probabilités.
 def probabilite(actuel: str, suivant: str) -> float:
-    comptes = transitions[actuel]
+    comptes = transitions.get(actuel)
+    if not comptes:
+        return 0.0
     total = sum(comptes.values())
     return comptes[suivant] / total if total else 0.0
 
@@ -31,6 +33,8 @@ def probabilite(actuel: str, suivant: str) -> float:
 def generer(debut: str, longueur: int = 160, graine: int = 7) -> str:
     if not debut:
         raise ValueError("L'amorce ne doit pas être vide.")
+    if longueur < 0:
+        raise ValueError("La longueur doit être positive ou nulle.")
     hasard = random.Random(graine)
     resultat = debut
     actuel = debut[-1]  # Notre modèle n'utilise QUE le dernier caractère.
