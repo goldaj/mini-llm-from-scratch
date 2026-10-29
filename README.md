@@ -1,51 +1,25 @@
 # Mini Language Model, from scratch
 
-**Projet pédagogique | Python 3 · statistiques de langage · génération de texte**
+Projet pédagogique Python/PyCharm pour construire progressivement un modèle de langage, **sans modèle préentraîné et sans dépendances**.
 
-Construire un modèle de langage *étape par étape*, sans poids préentraînés et sans dépendances externes. Le premier jalon est un modèle **bigramme de caractères** : il apprend à prédire le caractère suivant à partir d'un corpus en français.
+## Exécuter dans PyCharm
 
-> Il ne s'agit pas encore d'un réseau de neurones ni d'un grand modèle de langage. L'objectif est de comprendre les mécanismes avant d'implémenter un modèle plus avancé.
+- **Leçon 1 :** ouvrir `lecon01.py` puis cliquer Run (bigramme par comptage).
+- **Leçon 2 :** ouvrir `lecon02.py` puis cliquer Run. Cette fois, les probabilités proviennent de **poids numériques entraînables** appris par gradient et softmax, avec perte d'entropie croisée sur le texte. Le programme affiche la perte d'entraînement, la perte de validation, la perplexité et un exemple généré, puis exporte `modele_softmax.json`.
 
-## Exécution
+- **Leçon 3 :** ouvrir `lecon03.py` puis cliquer Run : embeddings entraînables, contexte causal de 3 caractères, couche cachée tanh, comparaison à un unigramme et bigramme lissés sur la même validation. Documentation : [Leçon 03](docs/LECON03.md).
 
-```bash
-python lecon01.py
-```
-
-Le programme entraîne un modèle sur `corpus.txt`, affiche des prédictions probabilistes, génère quelques exemples et exporte ses paramètres appris dans `modele_bigram.json`.
-
-**Prérequis :** Python 3.10+ ; bibliothèque standard uniquement. Travail et apprentissage prévus dans PyCharm.
-
-## Fonctionnement
-
-1. Lecture et normalisation du texte.
-2. Comptage des transitions entre caractères adjacents.
-3. Estimation de probabilités conditionnelles.
-4. Génération par échantillonnage pseudo-aléatoire reproductible.
-5. Export JSON du modèle entraîné.
-
-## Leçon 02 : apprendre plutôt que compter
+Depuis le terminal :
 
 ```bash
-python lecon02.py
+python lecon02.py --epochs 200 --learning-rate 2 --seed 7
+python lecon03.py --epochs 10 --context 3 --dim 4 --hidden 16 --seed 7
+python -m unittest discover -s tests -v
 ```
 
-Cette deuxième leçon entraîne une petite matrice de scores par descente de
-gradient, avec une fonction de perte (cross-entropy). Elle compare l'erreur
-avant et après l'entraînement, génère du texte reproductible et exporte
-`modele_bigram_entrainable.json`. Le programme n'utilise aucune dépendance
-externe et se lance dans PyCharm comme la première leçon. Ce n'est pas encore
-un réseau neuronal avec des embeddings ou de l'attention.
+Le modèle de la leçon 2 est une couche linéaire one-hot vers softmax : **pas un Transformer et pas encore un LLM moderne**. La séparation entraînement/validation se fait par phrases/lignes distinctes, pas par caractères contigus, afin de limiter la fuite de données. Les caractères de validation absents du vocabulaire d'entraînement ne peuvent pas être évalués : le rapport indique la couverture.
 
-## Feuille de route
+Leçon détaillée : [docs/LECON02.md](docs/LECON02.md). Les sorties de modèles générées sont personnelles et non destinées au dépôt.
 
-- [x] Leçon 01 : corpus, transitions et génération bigramme
-- [x] Leçon 02 : paramètres entraînables, softmax, fonction de perte et descente de gradient
-- [ ] Leçon 03 : gradient et optimisation
-- [ ] Leçon 04 : embeddings et fenêtre de contexte
-- [ ] Leçon 05 : mécanisme d'attention
-- [ ] Leçon 06 : mini-Transformer autorégressif
-
-## Intérêt technique
-
-Démarche incrémentale, expérimentation reproductible, Python, statistiques, apprentissage automatique et communication pédagogique.
+## Prochaines leçons
+Après les trois premières leçons, prochaine étape : attention causale puis Transformer minimal, avec tests anti-fuite et campagnes multi-seed. Leçon 03 est un MLP à contexte fixe, pas de l'attention.

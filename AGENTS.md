@@ -16,3 +16,17 @@
 - Format : date ISO et fuseau si connus, rôle `Utilisateur` ou `Assistant`, mention `verbatim` seulement pour un texte exact. Sinon `résumé reconstruit, non verbatim`. Ne pas inventer d'heure ni de citation.
 - Si l'historique intégral n'est pas disponible, le signaler et demander un export réel plutôt que fabriquer une transcription. Préserver les exports existants sans les réécrire.
 - Exclure secrets, identifiants, données personnelles et contenus non destinés à la publication. Le niveau de visibilité de ce dépôt s'applique aussi aux documents ajoutés.
+
+## Leçon 02 (2026-10-29)
+
+`lecon02.py` ajoute un vrai modèle bigramme linéaire avec gradient et softmax, évaluation par lignes tenues à l'écart et génération. Lire `docs/LECON02.md`, tester `python -m unittest discover -s tests -v` et garder le chemin pédagogique PyCharm. Ne pas appeler ce modèle un Transformer et ne pas retirer `lecon01.py`. Préserver le caractère hors ligne et la confidentialité des corpus.
+
+## Leçon 03 — contexte causal et embeddings (2026-10-29)
+
+- Branche empilée `feat/lesson03-context-embeddings-20261029`, base `feat/lesson02-trainable-softmax-20261029` (PR #2). Ne pas fusionner indépendamment avant le parent.
+- `lecon03.py` : vrai MLP de caractères, embeddings, contexte 3 (1–5), tanh et rétropropagation explicite, NLL validation et références unigramme/bigramme lissés sur les mêmes exemples.
+- Lire `docs/LECON03.md`. Les cinq tests `tests/test_lecon03.py` contrôlent notamment les gradients par différences finies et l'absence de tokens futurs.
+- Tests : `python -m unittest discover -s tests -v` puis `python lecon03.py --epochs 3 --length 10 --output /tmp/modele_context_mlp.json`. Sur Windows, choisir un chemin de sortie sous un répertoire temporaire.
+- Aucun réseau, aucun jeu de données privé, aucune API externe. Pas d'attention ni de Transformer : ne pas présenter ce MLP pédagogique comme un LLM moderne.
+- Le corpus jouet comporte 15 lignes ; les mesures de NLL, perplexité et gain face aux baselines **restent à exécuter et contrôler**. Aucune statistique de validation n'est certifiée pour cette branche, même sur un split unique.
+- Réviser les états CI/PR avant toute intégration ; passage à la leçon 04 : attention causale, évaluation multi-seed et tests anti-fuite.
